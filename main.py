@@ -10,7 +10,6 @@ def get_book_text(path):
     
 def count_words(text):
     words = text.split()
-    word_count = len(words)
-    return word_count
+    return len(words)
     
 main()
