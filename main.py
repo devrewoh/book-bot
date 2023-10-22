@@ -2,9 +2,16 @@ def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     num_words = get_num_words(text)
-    print(f"Word count: {num_words}")
     num_letters = get_num_letters(text)
-    print(f"Letter count: {num_letters}")
+    letter_list = list(num_letters.items())
+    sorted_letter_counts = sorted(letter_list, key=lambda x:x[1], reverse = True)
+    print(f"------ Begin report of {book_path} ------")
+    print(f"{num_words} words found in the document")
+    print()
+    for letter, count in sorted_letter_counts:
+        print(f"The letter '{letter}' was found {count} times")
+    print(f"------ End report ------")
+    
 
 def get_book_text(path):
     with open(path) as f:
